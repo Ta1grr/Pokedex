@@ -5,7 +5,7 @@ import {
 } from "../actions/pokemonAction";
 
 const initialState = {
-  pokemon: [],
+  pokedexData: [],
   loading: false,
   error: null,
 };
@@ -23,7 +23,7 @@ export const pokedexReducer = (state = initialState, action: any) => {
       return {
         ...state,
         loading: false,
-        items: action.payload.pokemons,
+        pokedexData: action.payload.pokemon,
       };
 
     case FETCH_POKEDEX_FAILURE:
@@ -31,7 +31,7 @@ export const pokedexReducer = (state = initialState, action: any) => {
         ...state,
         loading: false,
         error: action.payload.error,
-        pokemon: [],
+        pokedexData: [],
       };
 
     default:
