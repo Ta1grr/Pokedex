@@ -1,12 +1,14 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-// import MainContent from "./components/main-content/content";
-// import PokedexList from "./components/main-content/pokedexlist/index";
+import { MainContent } from "./components/main-content/content/index";
+import PokedexList from "./components/main-content/pokedexlist/index";
 
-interface AppProps {}
+interface AppProps {
+  // MainContent: typeof mainContent;
+}
 
-function App() {
+export const App: React.FC<AppProps> = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -23,6 +25,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <MainContent />
     </div>
   );
 }
