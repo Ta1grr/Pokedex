@@ -8,14 +8,16 @@ interface PokeAPIData {
   url: string;
 }
 
-interface PokeData {
+interface PokedexListProps {
   getPokemons: typeof getPokemons;
   pokedexData: PokeAPIData[];
+  id: any;
+  key: any;
   error: string;
   loading: boolean;
 }
 
-class PokedexList extends Component<PokeData> {
+class PokedexList extends Component<PokedexListProps> {
   componentDidMount() {
     this.props.getPokemons();
     console.log(this.props.getPokemons());
