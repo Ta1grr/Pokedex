@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { MainContent } from "./components/main-content/content/index";
+import MainContent from "./components/main-content/content/index";
 import PokedexList from "./components/main-content/pokedexlist/index";
 
 interface AppProps {
@@ -28,6 +28,6 @@ export const App: React.FC<AppProps> = () => {
       <MainContent />
     </div>
   );
-}
+};
 
 export default App;
