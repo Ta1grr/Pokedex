@@ -4,17 +4,28 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import combineReducers from "./reducers";
-import thunk from "redux-thunk";
+import { Store } from "redux";
+import configureStore, { IAppState } from "./store";
+import { getAllPokemons } from "./actions/pokemonAction";
 
-const store = createStore(combineReducers, applyMiddleware(thunk));
+interface IProps {
+  store: Store<IAppState>;
+}
+
+const Root: React.FC<IProps> = (props) => {
+  return (
+    <Provider store={props.store}>
+      <App />
+    </Provider>
+  );
+};
+
+const store = configureStore();
+store.dispatch(getAllPokemons());
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <Root store={store} />
   </React.StrictMode>,
   document.getElementById("root")
 );

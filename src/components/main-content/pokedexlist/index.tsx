@@ -1,19 +1,27 @@
 import React from "react";
-// import { connect } from "react-redux";
-// import { getPokemons } from "../../../actions/pokemonAction";
-// import { Pokedexcard } from "../pokedexcard";
+import { connect } from "react-redux";
+import { IAppState } from "../../../store";
+import { IPokemons } from "../../../reducers/pokedexReducer";
 
-interface PokedexListProps {
-  pokeData: any;
-  pokemons: any;
+interface IPokedexListProps {
+  pokemons: IPokemons[];
 }
 
-export const PokedexList: React.FC<PokedexListProps> = () => {
+export const PokedexList: React.FC<IPokedexListProps> = (props) => {
+  const { pokemons } = props;
   return (
-    <ul>
-      {pokedexData.map((data: any) => {
-        <li key={data.url}>{data.name}</li>;
+    <div>
+      {pokemons.map((pokemon) => {
+        return <span>{pokemon.name}</span>;
       })}
-    </ul>
+    </div>
   );
 };
+
+const mapStateToProps = (store: IAppState) => {
+  return {
+    pokemons: store.pokemonState.pokedexData,
+  };
+};
+
+export default connect(mapStateToProps)(PokedexList);
