@@ -10,11 +10,11 @@ interface IPokedexListProps {
 export const PokedexList: React.FC<IPokedexListProps> = (props) => {
   const { pokemons } = props;
   return (
-    <div>
+    <ul>
       {pokemons.map((pokemon) => {
-        return <span>{pokemon.name}</span>;
+        return <li>{pokemon.name}</li>;
       })}
-    </div>
+    </ul>
   );
 };
 
