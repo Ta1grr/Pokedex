@@ -1,12 +1,6 @@
 import { Reducer } from "redux";
 
-import {
-  PokemonActions,
-  PokemonActionTypes,
-  // FETCH_POKEDEX_BEGIN,
-  // FETCH_POKEDEX_SUCCESS,
-  // FETCH_POKEDEX_FAILURE,
-} from "../actions/pokemonAction";
+import { PokemonActions, PokemonActionTypes } from "../actions/pokemonAction";
 
 export interface IPokemons {
   name: string;
@@ -20,12 +14,14 @@ export interface IPokemonsState {
   readonly pokedexData: IPokemons[];
   loading: boolean;
   error: null;
+  lastSearchedPokemon: [];
 }
 
 const initialPokemonState: IPokemonsState = {
   pokedexData: [],
   loading: false,
   error: null,
+  lastSearchedPokemon: [],
 };
 
 export const pokemonReducer: Reducer<IPokemonsState, PokemonActions> = (
@@ -39,29 +35,6 @@ export const pokemonReducer: Reducer<IPokemonsState, PokemonActions> = (
         pokedexData: action.pokemons,
       };
     }
-    // case FETCH_POKEDEX_BEGIN:
-    //   return {
-    //     ...state,
-    //     pokedexData: action.payload.pokemon,
-    //     loading: true,
-    //     error: null,
-    //   };
-
-    // case FETCH_POKEDEX_SUCCESS:
-    //   return {
-    //     ...state,
-    //     loading: false,
-    //     pokedexData: action.payload.pokemon,
-    //   };
-
-    // case FETCH_POKEDEX_FAILURE:
-    //   return {
-    //     ...state,
-    //     loading: false,
-    //     error: action.payload.error,
-    //     pokedexData: [],
-    //   };
-
     default:
       return state;
   }
