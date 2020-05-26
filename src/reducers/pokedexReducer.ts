@@ -1,14 +1,6 @@
 import { Reducer } from "redux";
-
+import IPokemons from "./IPokemons.interface";
 import { PokemonActions, PokemonActionTypes } from "../actions/pokemonAction";
-
-export interface IPokemons {
-  name: string;
-  base_experience: number;
-  height: number;
-  order: number;
-  weight: number;
-}
 
 export interface IPokemonsState {
   readonly pokedexData: IPokemons[];
