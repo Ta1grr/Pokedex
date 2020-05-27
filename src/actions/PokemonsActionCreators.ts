@@ -7,8 +7,10 @@ import {
   IGetPokemonsFailureAction,
   ISearchPokemonsAction,
 } from "./IGetPokemonsAction.interface";
+import { ActionCreator, Dispatch } from "redux";
 import { ThunkAction } from "redux-thunk";
 import IPokemons from "../reducers/IPokemons.interface";
+import { IPokemonsState } from "../reducers/pokedexReducer";
 
 export const setPokemonActionCreator = (
   pokemon: IPokemons
@@ -34,7 +36,7 @@ export const IGetAllPokemons: ActionCreator<ThunkAction<
   Promise<any>,
   IPokemonsState,
   null,
-  IPokemonGetAllAction
+  IGetPokemonsAll
 >> = () => {
   return async (dispatch: Dispatch) => {
     try {
@@ -43,13 +45,13 @@ export const IGetAllPokemons: ActionCreator<ThunkAction<
       const data = await response.json();
       dispatch({
         pokemons: data.results,
-        type: PokemonActionTypes.GET_ALL,
+        type: PokemonsActionTypes.GET_ALL_POKEMONS,
       });
     } catch (err) {
       console.error(err);
     }
   };
-
+};
 
 export const getPokemonsStartActionCreator = (): IGetPokemonsStartAction => {
   return {

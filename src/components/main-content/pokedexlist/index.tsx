@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { IAppState } from "../../../store";
-import { IPokemons } from "../../../reducers/pokedexReducer";
+import IPokemons from "../../../reducers/IPokemons.interface";
 
 interface IPokedexListProps {
   pokemons: IPokemons[];

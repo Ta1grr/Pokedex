@@ -1,15 +1,20 @@
 import { Reducer } from "redux";
 import IPokemons from "./IPokemons.interface";
-import { PokemonActions, PokemonActionTypes } from "../actions/pokemonAction";
+// import { PokemonActions, PokemonActionTypes } from "../actions/pokemonAction";
+
+import PokemonActions from "../actions/PokemonsAction.type";
+import { PokemonsActionTypes } from "../actions/PokemonsActionTypes.enum";
 
 export interface IPokemonsState {
   readonly pokedexData: IPokemons[];
   loading: boolean;
   error: null;
   lastSearchedPokemon: [];
+  pokemon: undefined;
 }
 
 const initialPokemonState: IPokemonsState = {
+  pokemon: undefined,
   pokedexData: [],
   loading: false,
   error: null,
@@ -21,10 +26,15 @@ export const pokemonReducer: Reducer<IPokemonsState, PokemonActions> = (
   action
 ) => {
   switch (action.type) {
-    case PokemonActionTypes.GET_ALL: {
+    case PokemonsActionTypes.GET_ALL_POKEMONS: {
       return {
         ...state,
         pokedexData: action.pokemons,
+      };
+    }
+    case PokemonsActionTypes.SET_POKEMON: {
+      return {
+        ...state,
       };
     }
     default:
