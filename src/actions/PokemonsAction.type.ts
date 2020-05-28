@@ -4,6 +4,7 @@ import {
   IGetPokemonsStartAction,
   IGetPokemonsSuccessAction,
   IGetPokemonsFailureAction,
+  IGetPokemonsAll,
 } from "./IGetPokemonsAction.interface";
 
 type PokemonActions =
@@ -11,6 +12,7 @@ type PokemonActions =
   | ISearchPokemonsAction
   | IGetPokemonsStartAction
   | IGetPokemonsSuccessAction
-  | IGetPokemonsFailureAction;
+  | IGetPokemonsFailureAction
+  | IGetPokemonsAll;
 
 export default PokemonActions;
