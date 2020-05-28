@@ -25,7 +25,7 @@ export const searchBar: React.FC<ISearchProps> = ({
         <input
           type="search"
           placeholder="search"
-          value={searchPokemons}
+          value={searchPokemon}
           onChange={onChangeHandler}
         />
         <button type="submit">Search</button>

@@ -22,6 +22,7 @@ const Root: React.FC<IProps> = (props) => {
 
 const store = configureStore();
 store.dispatch(getAllPokemons());
+console.log(store.getState())
 
 ReactDOM.render(
   <React.StrictMode>
