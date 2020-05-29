@@ -4,7 +4,7 @@ export interface ISearchProps {
   searchPokemons: Function;
 }
 
-export const searchBar: React.FC<ISearchProps> = ({
+export const SearchBar: React.FC<ISearchProps> = ({
   searchPokemons,
 }: ISearchProps) => {
   const [searchPokemon, setSearchPokemon] = useState("");
