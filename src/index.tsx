@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import { Store } from "redux";
 import configureStore, { IAppState } from "./store";
 import { getAllPokemons } from "./actions/pokemonAction";
+import { IGetAllPokemons } from "./actions/PokemonsActionCreators";
 
 interface IProps {
   store: Store<IAppState>;
@@ -21,8 +22,8 @@ const Root: React.FC<IProps> = (props) => {
 };
 
 const store = configureStore();
-store.dispatch(getAllPokemons());
-console.log(store.getState())
+store.dispatch(IGetAllPokemons());
+console.log(store.getState());
 
 ReactDOM.render(
   <React.StrictMode>
