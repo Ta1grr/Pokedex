@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { IAppState } from "../../../store";
 
 export interface ISearchProps {
   searchPokemons: Function;
@@ -33,3 +35,11 @@ export const SearchBar: React.FC<ISearchProps> = ({
     </div>
   );
 };
+
+const mapStateToProps = (store: IAppState) => {
+  return {
+    pokemons: store.pokemonState.pokedexData,
+  };
+};
+
+export default connect(mapStateToProps)(SearchBar);
